@@ -16,6 +16,9 @@ public class Trent_Russell_Q3 {
 
 			while ((str = br.readLine()) != null) {
 
+				if (counter > 1000) {
+					throw new Exception("Data set is too large.");
+				}
 				temp = Integer.parseInt(str);
 				if (temp == 0) {
 					marker++;
@@ -24,9 +27,13 @@ public class Trent_Russell_Q3 {
 				}
 				arr.add(temp); // fill an array of ints
 				product = product * temp; // get the total product
-				counter++; //keep track of the count to know the zero index
+				counter++; // keep track of the count to know the zero index
 			}
 			br.close();
+
+			if (counter < 2) {
+				throw new Exception("Data set is too small.");
+			}
 
 			if (marker == 1) { // arr contains one zero
 				for (int i = 0; i < arr.size(); i++) {
